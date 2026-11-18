@@ -1,0 +1,24 @@
+{
+  "kind": "custom_token",
+  "token": {
+    "contract": "ImdUSD",
+    "name": "imdUSD",
+    "symbol": "IMDUSD",
+    "decimals": 18,
+    "constructorArgs": [],
+    "totalSupply": "1000000000000000000000000000"
+  },
+  "contracts": [],
+  "pool": {
+    "pairedCurrency": "0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7",
+    "fee": 12500,
+    "tickSpacing": 60,
+    "initialPrice": "79228162514264337593543950336"
+  },
+  "economics": {
+    "poolBps": 8000,
+    "initialMarketCapWei": "2500000000000000000000",
+    "remainderTo": "0xd6302976e590b9b947da8774b7f1246164e0ce98"
+  },
+  "notes": "ImdUSD (src/ImdUSD.sol) is the token imdUSD (IMDUSD): OpenZeppelin v5 ERC20 with 18 decimals whose constructor takes no arguments and mints the constant SUPPLY, 1,000,000,000 * 10^18 = 1000000000000000000000000000 minor units, once to msg.sender, which in the launch is the factory. There is no other mint and no burn function, so totalSupply never changes. The token has no owner, minter, pause, blacklist, freeze, fee or tax on transfer, permit, proxy or upgrade path, and makes no external call; every transfer moves exactly the amount asked for and no address is exempted or treated differently, so the launch placeholders $factory, $poolManager and $launchNumber are not used. There are no application contracts and no initialization calls. The pool pairs the token with IMD (0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7, 18 decimals) at fee 12500 (1.25%) and tick spacing 60; pool.initialPrice is provenance only, the deployer derives the opening price from economics.initialMarketCapWei (2,500 IMD for the whole supply) and totalSupply. economics is the requester's, copied verbatim: 80% of the supply seeds the pool and the rest of the requester's share goes to remainderTo. Despite the name, the contract holds no reserve, reads no oracle and enforces no peg: nothing on chain makes one IMDUSD worth one US dollar."
+}
